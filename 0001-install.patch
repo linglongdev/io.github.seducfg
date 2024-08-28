@@ -1,0 +1,48 @@
+From e002cd35d52ecf4d70bbdd77a2ab779ca1b77cea Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Wed, 14 Aug 2024 17:30:17 +0800
+Subject: [PATCH] install
+
+---
+ seducfg.desktop | 11 +++++++++++
+ seducfg.pro     |  7 +++++++
+ 2 files changed, 18 insertions(+)
+ create mode 100644 seducfg.desktop
+
+diff --git a/seducfg.desktop b/seducfg.desktop
+new file mode 100644
+index 0000000..aa18322
+--- /dev/null
++++ b/seducfg.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=seducfg
++Name=seducfg
++Name[zh_CN]=seducfg
++Icon=seducfg
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=seducfg
++Version=1.0
+\ No newline at end of file
+diff --git a/seducfg.pro b/seducfg.pro
+index cd2b211..74a64f2 100644
+--- a/seducfg.pro
++++ b/seducfg.pro
+@@ -21,3 +21,10 @@ RC_ICONS	+= res/ico/app.ico
+ macx {
+ ICON		+= res/ico/app.icns
+ }
++target.path = $$PREFIX/bin
++desktop.files = seducfg.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons
++icons.files = res/ico/seducfg.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+
