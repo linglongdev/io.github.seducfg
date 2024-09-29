@@ -1,0 +1,29 @@
+version: "1"
+
+package:
+  id: io.github.seducfg
+  name: seducfg
+  version: 0.0.0.1
+  kind: app
+  description: |
+    SEDU Board Configurator
+
+command:
+  - /opt/apps/io.github.seducfg/files/bin/seducfg
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/LazyT/seducfg.git
+    version: master
+    commit: 475805b67edc1e747f09c4a349eef98e7514ad53
+
+build: |
+  cd /project/linglong/sources/seducfg.git
+  git apply ../../../0001-install.patch
+  cp res/ico/app.png res/ico/seducfg.png
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
